@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useEffect } from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
@@ -16,8 +16,11 @@ import TextField from '@mui/material/TextField';
 import CheckSharpIcon from '@mui/icons-material/CheckSharp';
 import CloseSharpIcon from '@mui/icons-material/CloseSharp';
 import { createTheme,ThemeProvider } from '@mui/material/styles';
-import ImageHandler from './ImageHandler';
+import {  useSearchParams, useNavigate } from "react-router-dom"
 
+import ImageHandler from './ImageHandler';
+import useInput from "../../hooks/use-Input";
+import useHttp from '../../hooks/use-Http';
 
 const description = [
     'A protection against theft thanks to a unique, invisible and indelible marking: In case of theft, your object can be authenticated in a sure way by the police forces and the legal authorities, via the Track & Trace technology',
@@ -39,11 +42,27 @@ const theme = createTheme({
       contrastText: '#fff',
     },
   },
+  invalid :{
+    backgroundColor:'white',
+    transition: '300ms',
+    display:'flex'
+    ,justifyContent:'center',
+    flexDirection:'column',
+    '& p':{
+      color:'rgb(218, 63, 63)',
+      marginTop:'0',
+      transition: '400ms',
+      fontSize:'0.5rem',
+      textAlign:'center',
+      marginRight:'3rem'
+    },
+    }
 });
 
 
 const tiers = [
   {
+    id:1,
     title: 'Digital twin',
     price: '10',
     description: {tick:[
@@ -61,6 +80,7 @@ const tiers = [
     buttonVariant: 'outlined',
   },
   {
+    id:2,
     title: 'Digital twin & 3-D Scan',
     // subheader: 'Most popular',
     price: '15',
@@ -81,6 +101,79 @@ const tiers = [
 
 
 function LandingPageContent() {
+
+  const [queryParameters] = useSearchParams();
+  let tpk_id = queryParameters.get("tpk_id");
+  const {isLoading:isLoadingPost,hasError:httpPostError,sendRequest:sendPostRequest,setIsLoading:setIsLoadingPost,setHttpError:setHttpErrorPost} = useHttp({url:'https://dev1.unikbase.dev/meveo/rest/strcheckout',method: 'POST'})
+  // const {isLoading:isLoadingGet,hasError:httpGetError,sendRequest:sendGetRequest,setIsLoading:setIsLoadingGet,setHttpError:setHttpErrorGet} = useHttp({url:'https://checkout.stripe.com',method: 'GET'})
+
+  useEffect(() => {
+    if(!tpk_id){
+       return window.location.href = "https://www.google.com";
+    }
+    
+ console.log("tpk_id:",tpk_id)
+
+ },[queryParameters,tpk_id]);
+
+  const {
+    value: enteredEmailBasicPlan,
+    valueIsValid: enterEmailIsValidBasicPlan,
+    hasError: emailInputIsInvalidBasicPlan,
+    inputChangeHandler: emailInputChangeHandlerBasicPlan,
+    inputBlurHandler: emailInputBlurHandlerBasicPlan,
+    reset: resetEmailBasicPlan,
+  } = useInput((value) => value.trim() !== "" && value.includes("@"));
+
+
+  const {
+    value: enteredEmailPremiumPlan,
+    valueIsValid: enterEmailIsValidPremiumPlan,
+    hasError: emailInputIsInvalidPremiumPlan,
+    inputChangeHandler: emailInputChangeHandlerPremiumPlan,
+    inputBlurHandler: emailInputBlurHandlerPremiumPlan,
+    reset: resetEmailPremiumPlan,
+  } = useInput((value) => value.trim() !== "" && value.includes("@"));
+    //Form Validation
+    let submitFormValid = false;
+    if (enterEmailIsValidBasicPlan || enterEmailIsValidPremiumPlan) {
+      submitFormValid = true;
+    }
+    ////
+  
+    const submitHandler = (event) => {
+      event.preventDefault();
+      console.log("Basic Email:",enteredEmailBasicPlan)
+      console.log("Premium Plan:",enteredEmailPremiumPlan)
+      let payload = {
+        email: enteredEmailBasicPlan || enteredEmailPremiumPlan,
+        tpk_id,
+        price_id:'5'
+      }
+      if (submitFormValid) {
+         sendPostRequest(payload).catch((error) => {
+          setIsLoadingPost(false);
+          setHttpErrorPost(error.message);
+        }).then(({url})=>{
+        console.log("URL",url)
+        if(url){
+          window.location.replace('https://checkout.stripe.com')
+        }
+        })
+
+        // sendGetRequest().catch((error) => {
+        //   setIsLoadingGet(false);
+        //   setHttpErrorGet(error.message);
+        // })
+        if(!emailInputIsInvalidBasicPlan) {
+        }
+      }
+       resetEmailBasicPlan()
+      resetEmailPremiumPlan();
+    };
+    const emailInputBasicPlanClasses = emailInputIsInvalidBasicPlan ? theme.invalid : {display:'flex',justifyContent:'center'};
+    const emailInputPremiumPlanClasses = emailInputIsInvalidPremiumPlan ? theme.invalid : {display:'flex',justifyContent:'center'};
+
   return (
     <React.Fragment>
       <GlobalStyles styles={{ ul: { margin: 0, padding: 0, listStyle: 'none'} }} />
@@ -182,7 +275,7 @@ function LandingPageContent() {
                       </Typography>
                       </div>
                     ))}
-                                        {tier.description.cross.map((line) => (
+                    {tier.description.cross.map((line) => (
                         <div style={{display:'flex',gap:'0.5rem'}}>
                         <CloseSharpIcon color="error"/>
                       <Typography
@@ -198,18 +291,25 @@ function LandingPageContent() {
                     ))}
                   </ul>
                 </CardContent>
+                <ThemeProvider theme={theme}>
+                  <Grid  sx={tier.id === 1 ? emailInputBasicPlanClasses : emailInputPremiumPlanClasses} >
                 <TextField
-                     required
-                    id="standard-required"
+                    required
+                    id={tier.id}
                     // label="required"
                     defaultValue="Your Email"
+                    value={tier.id === 1 ? enteredEmailBasicPlan: enteredEmailPremiumPlan}
                     variant="standard"
                     inputProps={{style: {fontSize: '1rem'}}}
                     sx={{justifyContent:'center',alignSelf:'center',mt:'1.5rem',mb:'0.5rem'}}
+                    onChange={tier.id === 1 ? emailInputChangeHandlerBasicPlan : emailInputChangeHandlerPremiumPlan }
+                    onBlur={tier.id === 1 ? emailInputBlurHandlerBasicPlan : emailInputBlurHandlerPremiumPlan}
                      />
-                <ThemeProvider theme={theme}>
-                <CardActions sx={{marginBottom:2, alignItems:'flex-end', justifyContent:'center'}} >
-                  <Button fullWidth color="primary" variant={tier.buttonVariant} sx={ { borderRadius: 3, width: 220,fontFamily:'Rubik' } } >
+                    {tier.id === 1 && emailInputIsInvalidBasicPlan && <p>Only send request when email is valid -</p>}
+                    {tier.id === 2 && emailInputIsInvalidPremiumPlan && <p>Only send request when email is valid -</p>} 
+                    </Grid>
+                <CardActions  sx={{marginBottom:2, alignItems:'flex-end', justifyContent:'center'}} >
+                  <Button  onClick={submitHandler}  fullWidth color="primary" variant={tier.buttonVariant} sx={ { borderRadius: 3, width: 220,fontFamily:'Rubik' } } >
                     {tier.buttonText}
                   </Button>
                 </CardActions>
@@ -228,3 +328,5 @@ function LandingPageContent() {
 export default function LandingPage() {
   return <LandingPageContent />;
 }
+
+

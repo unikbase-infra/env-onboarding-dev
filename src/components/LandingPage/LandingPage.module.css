@@ -1,0 +1,17 @@
+
+.invalid input{
+    border: 0.1rem solid red;
+    background-color:#3f1d1da4;
+    transition: 300ms;
+  }
+  
+  .invalid input:hover{
+      border: 0.1rem solid red;
+      background-color:#303245;
+    }
+  
+  .invalid p{
+      color:rgb(218, 63, 63);
+      margin-top:0;
+      transition: 400ms;
+  }

@@ -1,0 +1,14 @@
+to checkout :
+
+call POST https://dev1.unikbase.dev/meveo/rest/strcheckout
+
+
+body :
+{
+"email":"myemail@gmail.com
+",
+"tpk_id:":"1212121333",
+"price_id":"0"
+}
+
+price_id could be "0",...,"5"
