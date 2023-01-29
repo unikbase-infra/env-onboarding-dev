@@ -7,12 +7,14 @@ import CancelPage from "./components/CencelPage/CancelPage";
 
 function App() {
 
-  const base_url = process.env.PUBLIC_URL;
+  const base_url = process.env.PUBLIC_URL || "env-onboarding-dev";
   
   const RouteConponents = [
-    { path: `/${base_url}/`, element: <LandingPage /> },
-    { path: `/${base_url}/success`, element: <SuccessPage /> },
-    { path: `/${base_url}/cancel`, element: <CancelPage /> },
+    { path: `/env-onboarding-dev/`, element: <LandingPage /> },
+    { path: `/env-onboarding-dev/success`, element: <SuccessPage /> },
+    { path: `/env-onboarding-dev/cancel`, element: <CancelPage /> },
+    { path: `/success`, element: <SuccessPage /> },
+
   ];
 
   return (

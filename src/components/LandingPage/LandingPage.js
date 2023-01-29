@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
@@ -107,8 +107,7 @@ function LandingPageContent() {
 
   //Converting tpk_id to get price from table
   let tpk_id = queryParameters.get("tpk_id");
-  const price_id = price_id_algorithm(tpk_id)
-  const price_item = pricing_table.find(item => item.price_id === price_id);
+  const [price_item, setPriceItem] = useState({})
 
   let image = queryParameters.get("image");
   const {isLoading:isLoadingPost,hasError:httpPostError,sendRequest:sendPostRequest,setIsLoading:setIsLoadingPost,setHttpError:setHttpErrorPost} = useHttp({url:'https://dev1.unikbase.dev/meveo/rest/strcheckout',method: 'POST'})
@@ -118,9 +117,10 @@ function LandingPageContent() {
     if(!tpk_id){
        return window.location.href = "https://www.google.com";
     }
-    
+    const price_id = price_id_algorithm(tpk_id)
+    let price_item_found = pricing_table.find(item => item.price_id === price_id);
+    setPriceItem(price_item_found)
  console.log("tpk_id:",tpk_id)
-
  },[queryParameters,tpk_id]);
 
   const {
@@ -167,7 +167,6 @@ function LandingPageContent() {
           setHttpErrorPost(error.message);
         })
         .then((data)=>{
-        console.log("URL",data)
         if(data){
           window.location.replace(data)
         }
@@ -346,17 +345,12 @@ export default function LandingPage() {
   return <LandingPageContent />;
 }
 
-
-
 const price_id_algorithm = (tpk_id) => {
   const numbers_in_string = tpk_id.match(/\d/g);
   const numbers_in_integer = numbers_in_string.map(num => +num);
-  console.log(numbers_in_integer)
-  // const modulus = number%3;
   const sum = numbers_in_integer.reduce((accumulator, value) => {
       return accumulator + value;
     }, 0);
-    console.log("SUM", sum)
   const price_id = sum%5;
   return price_id
 }
