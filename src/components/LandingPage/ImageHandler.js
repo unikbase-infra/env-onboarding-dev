@@ -1,9 +1,18 @@
-import React from "react";
+import React, { useState,useEffect } from "react";
 import Box from '@mui/material/Box';
 import vest from '../../assets/unikbase-veste-back-3.jpg'
-const ImageHandler = () => {
+import white_image from '../../assets/white_image.jpeg'
+const ImageHandler = (props) => {
+    const [image , setImage] = useState(white_image);
+    useEffect(() => {
+        if(props.image)
+        {
+            setImage(props.image)
+        }else{
+            setImage(vest)
 
-
+        }
+    })
     return(<div>
         <Box
             sx={{
@@ -18,7 +27,7 @@ const ImageHandler = () => {
                 },
 
                     }}>
-                <img src={vest} alt="object" style={{width:'100%',height:'100%', borderRadius:'0.5rem'}}/> {/*boxShadow:'0rem 0.5rem 1rem 0.1rem'*/}
+                <img src={image} alt="object" style={{width:'100%',height:'100%', borderRadius:'0.5rem'}}/> {/*boxShadow:'0rem 0.5rem 1rem 0.1rem'*/}
 
                 </Box>
                 </div>

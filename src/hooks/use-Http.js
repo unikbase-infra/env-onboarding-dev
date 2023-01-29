@@ -1,6 +1,6 @@
 import  {useState } from "react";
 
-const useHttp = (data) => {
+const useHttp =  (data) => {
   const [isLoading, setIsLoading] = useState(false);
   const [httpError, setHttpError] = useState(null);
   const [properties, setProperties] = useState([]);
@@ -55,9 +55,10 @@ const useHttp = (data) => {
       if (!response.ok) {
         throw new Error("Something went Wrong");
       }
-      console.log(response)
+      let url = await response.text()
+      console.log(url)
       setIsLoading(false);
-      return response;
+      return url ;
     };
 
     return {

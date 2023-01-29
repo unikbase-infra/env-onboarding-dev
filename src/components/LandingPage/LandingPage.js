@@ -21,6 +21,7 @@ import {  useSearchParams, useNavigate } from "react-router-dom"
 import ImageHandler from './ImageHandler';
 import useInput from "../../hooks/use-Input";
 import useHttp from '../../hooks/use-Http';
+import SuccessCard from '../UI/SuccessCard';
 
 const description = [
     'A protection against theft thanks to a unique, invisible and indelible marking: In case of theft, your object can be authenticated in a sure way by the police forces and the legal authorities, via the Track & Trace technology',
@@ -103,7 +104,13 @@ const tiers = [
 function LandingPageContent() {
 
   const [queryParameters] = useSearchParams();
+
+  //Converting tpk_id to get price from table
   let tpk_id = queryParameters.get("tpk_id");
+  const price_id = price_id_algorithm(tpk_id)
+  const price_item = pricing_table.find(item => item.price_id === price_id);
+
+  let image = queryParameters.get("image");
   const {isLoading:isLoadingPost,hasError:httpPostError,sendRequest:sendPostRequest,setIsLoading:setIsLoadingPost,setHttpError:setHttpErrorPost} = useHttp({url:'https://dev1.unikbase.dev/meveo/rest/strcheckout',method: 'POST'})
   // const {isLoading:isLoadingGet,hasError:httpGetError,sendRequest:sendGetRequest,setIsLoading:setIsLoadingGet,setHttpError:setHttpErrorGet} = useHttp({url:'https://checkout.stripe.com',method: 'GET'})
 
@@ -135,9 +142,13 @@ function LandingPageContent() {
     reset: resetEmailPremiumPlan,
   } = useInput((value) => value.trim() !== "" && value.includes("@"));
     //Form Validation
-    let submitFormValid = false;
-    if (enterEmailIsValidBasicPlan || enterEmailIsValidPremiumPlan) {
-      submitFormValid = true;
+    let submitFormValidBasicPlan = false;
+    let submitFormValidPremiumPlan = false;
+    if (enterEmailIsValidBasicPlan) {
+      submitFormValidBasicPlan = true;
+    }
+    if(enterEmailIsValidPremiumPlan){
+        submitFormValidPremiumPlan = true;
     }
     ////
   
@@ -148,16 +159,17 @@ function LandingPageContent() {
       let payload = {
         email: enteredEmailBasicPlan || enteredEmailPremiumPlan,
         tpk_id,
-        price_id:'5'
+        value: 100.0
       }
-      if (submitFormValid) {
+      if (submitFormValidBasicPlan || submitFormValidPremiumPlan) {
          sendPostRequest(payload).catch((error) => {
           setIsLoadingPost(false);
           setHttpErrorPost(error.message);
-        }).then(({url})=>{
-        console.log("URL",url)
-        if(url){
-          window.location.replace('https://checkout.stripe.com')
+        })
+        .then((data)=>{
+        console.log("URL",data)
+        if(data){
+          window.location.replace(data)
         }
         })
 
@@ -168,7 +180,7 @@ function LandingPageContent() {
         if(!emailInputIsInvalidBasicPlan) {
         }
       }
-       resetEmailBasicPlan()
+      resetEmailBasicPlan()
       resetEmailPremiumPlan();
     };
     const emailInputBasicPlanClasses = emailInputIsInvalidBasicPlan ? theme.invalid : {display:'flex',justifyContent:'center'};
@@ -195,6 +207,8 @@ function LandingPageContent() {
         <Typography variant="h5" align="center" color="#EA5123" component="p" sx={{mb:'1rem',fontFamily: 'Rubik',fontWeight:400}}>
         Why a digital twin?
         </Typography >
+
+        
         <ul >
                     {description.map((item) => (
                       <Typography
@@ -208,12 +222,14 @@ function LandingPageContent() {
                         {item}
                       </Typography>
                     ))}
-                    </ul>
+        </ul>
       </Container>
 
       {/* End hero unit */}
       <Container maxWidth="md" component="main" sx={{padding:'0rem'}}>
         <Grid container spacing={0}  justifyContent="center">
+        {isLoadingPost && <SuccessCard title="Thankyou For Requesting a Token" message="We are proceeding your order"/>}
+
           {tiers.map((tier) => (
             // Enterprise card is full width at sm breakpoint
             <Grid
@@ -224,6 +240,7 @@ function LandingPageContent() {
               md={6}
               sx={{ fontWeight: 800, padding:'0rem 1rem 1rem 1rem', mb:2}}
             >
+
                 
               <Card  sx={{ display:'flex', flexDirection:'column',height:'100%', borderRadius:'0.8rem', boxShadow:'0rem 0.5rem 0.2rem 0.2rem #000', padding:1}}>
                 <CardHeader
@@ -243,7 +260,7 @@ function LandingPageContent() {
                         : theme.palette.grey[800],
                      }}
                 />
-                <ImageHandler/>
+                <ImageHandler image={image}/>
                 <CardContent>
                   <Box
                     sx={{
@@ -254,7 +271,7 @@ function LandingPageContent() {
                     }}
                   >
                     <Typography component="h2" variant="h3" color="text.primary" sx={{fontFamily: 'Rubik',fontWeight:600}}>
-                      ${tier.price}
+                      ${price_item.value}
                     </Typography>
                     <Typography variant="h6" color="text.secondary" fontWeight={500} sx={{fontFamily: 'Source Sans Pro'}}>
                       /Month
@@ -296,8 +313,8 @@ function LandingPageContent() {
                 <TextField
                     required
                     id={tier.id}
-                    // label="required"
-                    defaultValue="Your Email"
+                    label="Your Email"
+                    // defaultValue="Your Email"
                     value={tier.id === 1 ? enteredEmailBasicPlan: enteredEmailPremiumPlan}
                     variant="standard"
                     inputProps={{style: {fontSize: '1rem'}}}
@@ -309,7 +326,7 @@ function LandingPageContent() {
                     {tier.id === 2 && emailInputIsInvalidPremiumPlan && <p>Only send request when email is valid -</p>} 
                     </Grid>
                 <CardActions  sx={{marginBottom:2, alignItems:'flex-end', justifyContent:'center'}} >
-                  <Button  onClick={submitHandler}  fullWidth color="primary" variant={tier.buttonVariant} sx={ { borderRadius: 3, width: 220,fontFamily:'Rubik' } } >
+                  <Button disabled={tier.id === 1 ? !submitFormValidBasicPlan:!submitFormValidPremiumPlan} onClick={submitHandler}  fullWidth color="primary" variant={tier.buttonVariant} sx={ { borderRadius: 3, width: 220,fontFamily:'Rubik' } } >
                     {tier.buttonText}
                   </Button>
                 </CardActions>
@@ -330,3 +347,24 @@ export default function LandingPage() {
 }
 
 
+
+const price_id_algorithm = (tpk_id) => {
+  const numbers_in_string = tpk_id.match(/\d/g);
+  const numbers_in_integer = numbers_in_string.map(num => +num);
+  console.log(numbers_in_integer)
+  // const modulus = number%3;
+  const sum = numbers_in_integer.reduce((accumulator, value) => {
+      return accumulator + value;
+    }, 0);
+    console.log("SUM", sum)
+  const price_id = sum%5;
+  return price_id
+}
+
+const pricing_table = [
+  {price_id:0,value:60},
+  {price_id:1,value:25},
+  {price_id:2,value:200},
+  {price_id:3,value:70},
+  {price_id:4,value:90},
+]
