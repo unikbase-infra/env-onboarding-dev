@@ -23,6 +23,9 @@ import useInput from "../../hooks/use-Input";
 import useHttp from '../../hooks/use-Http';
 import SuccessCard from '../UI/SuccessCard';
 
+const REDIRECT_URL = "https://www.google.com";
+const STRIPE_PAYMENT_URL = "https://dev1.unikbase.dev/meveo/rest/strcheckout"
+
 const description = [
     'A protection against theft thanks to a unique, invisible and indelible marking: In case of theft, your object can be authenticated in a sure way by the police forces and the legal authorities, via the Track & Trace technology',
     'A digital passport hosted on a private and ultra secure blockchain-based folder, that can be shared with any third party as needed : 3D-scan, photos, description, original invoice, proof of ownership, previous transactions: all compiled in a single, confidential, unforgeable and non-duplicable file.',
@@ -110,17 +113,18 @@ function LandingPageContent() {
   const [price_item, setPriceItem] = useState({})
 
   let image = queryParameters.get("image");
-  const {isLoading:isLoadingPost,hasError:httpPostError,sendRequest:sendPostRequest,setIsLoading:setIsLoadingPost,setHttpError:setHttpErrorPost} = useHttp({url:'https://dev1.unikbase.dev/meveo/rest/strcheckout',method: 'POST'})
+  const {isLoading:isLoadingPost,hasError:httpPostError,sendRequest:sendPostRequest,setIsLoading:setIsLoadingPost,setHttpError:setHttpErrorPost} = useHttp({url:STRIPE_PAYMENT_URL,method: 'POST'})
   // const {isLoading:isLoadingGet,hasError:httpGetError,sendRequest:sendGetRequest,setIsLoading:setIsLoadingGet,setHttpError:setHttpErrorGet} = useHttp({url:'https://checkout.stripe.com',method: 'GET'})
 
   useEffect(() => {
     if(!tpk_id){
-       return window.location.href = "https://www.google.com";
+       return window.location.href = REDIRECT_URL;
     }
     const price_id = price_id_algorithm(tpk_id)
     let price_item_found = pricing_table.find(item => item.price_id === price_id);
     setPriceItem(price_item_found)
- console.log("tpk_id:",tpk_id)
+    console.log("tpk_id:",tpk_id)
+
  },[queryParameters,tpk_id]);
 
   const {
@@ -151,7 +155,7 @@ function LandingPageContent() {
         submitFormValidPremiumPlan = true;
     }
     ////
-  
+
     const submitHandler = (event) => {
       event.preventDefault();
       console.log("Basic Email:",enteredEmailBasicPlan)
@@ -159,16 +163,19 @@ function LandingPageContent() {
       let payload = {
         email: enteredEmailBasicPlan || enteredEmailPremiumPlan,
         tpk_id,
-        value: 100.0
+        value: price_item
       }
       if (submitFormValidBasicPlan || submitFormValidPremiumPlan) {
          sendPostRequest(payload).catch((error) => {
           setIsLoadingPost(false);
           setHttpErrorPost(error.message);
         })
-        .then((data)=>{
-        if(data){
-          window.location.replace(data)
+        .then((url)=>{
+        // console.log("URL",data)
+        if(url){
+          const session_id = url.split("https://checkout.stripe.com/c/pay/").join("")
+          localStorage.setItem('session_id',session_id)
+          // window.location.replace(url)
         }
         })
 
@@ -348,17 +355,20 @@ export default function LandingPage() {
 const price_id_algorithm = (tpk_id) => {
   const numbers_in_string = tpk_id.match(/\d/g);
   const numbers_in_integer = numbers_in_string.map(num => +num);
+  // console.log(numbers_in_integer)
+  // const modulus = number%3;
   const sum = numbers_in_integer.reduce((accumulator, value) => {
       return accumulator + value;
     }, 0);
+    // console.log("SUM", sum)
   const price_id = sum%5;
   return price_id
 }
 
 const pricing_table = [
-  {price_id:0,value:60},
+  {price_id:0,value:40},
   {price_id:1,value:25},
-  {price_id:2,value:200},
+  {price_id:2,value:160},
   {price_id:3,value:70},
   {price_id:4,value:90},
 ]

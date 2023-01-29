@@ -56,7 +56,8 @@ const useHttp =  (data) => {
         throw new Error("Something went Wrong");
       }
       let url = await response.text()
-      console.log(url)
+      // console.log("Response:",response);
+      // console.log("Response API:",url)
       setIsLoading(false);
       return url ;
     };

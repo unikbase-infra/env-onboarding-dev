@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import Typography from '@mui/material/Typography';
@@ -6,16 +6,33 @@ import Typography from '@mui/material/Typography';
 import GlobalStyles from '@mui/material/GlobalStyles';
 import Container from '@mui/material/Container';
 
+import useHttp from '../../hooks/use-Http';
 
+const STRIPE_CANCEL_URL = "https://dev1.unikbase.dev/meveo/rest/cancelStripeSession"
 const data = {
     title:"Commande annulee",
     email:'',
     description:[]
 }
 
-
 function CancelPage() {
+  let ses_id = localStorage.getItem('session_id');
+  const {isLoading:isLoading,hasError:httpError,sendRequest:sendRequest,setIsLoading:setIsLoading,setHttpError:setHttpError} = useHttp({url:`${STRIPE_CANCEL_URL}/${ses_id}`,method: 'POST'})
 
+
+  useEffect(() => {
+    if(ses_id){
+        sendRequest().catch((error) => {
+          setIsLoading(false);
+          setHttpError(error.message);
+        }).then( (url) => {
+            console.log(url)
+        })    
+        console.log("CANCELED SUCCESSFULLY")
+        //  localStorage.clear();
+        ses_id = null;
+    }
+  },ses_id)
 
   return (
     <React.Fragment>
@@ -55,6 +72,7 @@ function CancelPage() {
                       </Typography>
                     ))}
         </ul>
+
       </Container>
 
       {/* End hero unit */}

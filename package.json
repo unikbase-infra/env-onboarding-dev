@@ -2,7 +2,7 @@
   "name": "unikbase-pricing-table",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://unikbase-infra.github.io/env-onboarding-dev",
+  "homepage": "https://unikbase-infra.github.io/env-onboarding-dev/#",
   "dependencies": {
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
