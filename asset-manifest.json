@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/env-onboarding-dev/static/css/main.44d44be6.css",
-    "main.js": "/env-onboarding-dev/static/js/main.f42db450.js",
+    "main.js": "/env-onboarding-dev/static/js/main.ef946dd6.js",
     "static/media/unikbase-veste-back-3.jpg": "/env-onboarding-dev/static/media/unikbase-veste-back-3.a082fe97b07386ecd759.jpg",
     "index.html": "/env-onboarding-dev/index.html",
     "main.44d44be6.css.map": "/env-onboarding-dev/static/css/main.44d44be6.css.map",
-    "main.f42db450.js.map": "/env-onboarding-dev/static/js/main.f42db450.js.map"
+    "main.ef946dd6.js.map": "/env-onboarding-dev/static/js/main.ef946dd6.js.map"
   },
   "entrypoints": [
     "static/css/main.44d44be6.css",
-    "static/js/main.f42db450.js"
+    "static/js/main.ef946dd6.js"
   ]
 }
