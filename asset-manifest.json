@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/env-onboarding-dev/static/css/main.ccaa250e.css",
-    "main.js": "/env-onboarding-dev/static/js/main.316c5cdf.js",
+    "main.js": "/env-onboarding-dev/static/js/main.247f5108.js",
     "index.html": "/env-onboarding-dev/index.html",
     "main.ccaa250e.css.map": "/env-onboarding-dev/static/css/main.ccaa250e.css.map",
-    "main.316c5cdf.js.map": "/env-onboarding-dev/static/js/main.316c5cdf.js.map"
+    "main.247f5108.js.map": "/env-onboarding-dev/static/js/main.247f5108.js.map"
   },
   "entrypoints": [
     "static/css/main.ccaa250e.css",
-    "static/js/main.316c5cdf.js"
+    "static/js/main.247f5108.js"
   ]
 }
