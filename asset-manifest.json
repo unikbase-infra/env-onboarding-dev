@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/env-onboarding-dev/static/css/main.30563456.css",
-    "main.js": "/env-onboarding-dev/static/js/main.a4bb7ee2.js",
+    "main.js": "/env-onboarding-dev/static/js/main.2f72fc11.js",
     "static/media/image-artboard-phone.png": "/env-onboarding-dev/static/media/image-artboard-phone.d088e4257ad001ff46fc.png",
     "static/media/benefit-bg.jpg": "/env-onboarding-dev/static/media/benefit-bg.cff078bc228ec192bcdc.jpg",
     "static/media/physical-marking-furniture.png": "/env-onboarding-dev/static/media/physical-marking-furniture.120c6753cc0d2996cc99.png",
     "static/media/the-packengers-logo.svg": "/env-onboarding-dev/static/media/the-packengers-logo.9135b4a904e8e1071420.svg",
     "index.html": "/env-onboarding-dev/index.html",
     "main.30563456.css.map": "/env-onboarding-dev/static/css/main.30563456.css.map",
-    "main.a4bb7ee2.js.map": "/env-onboarding-dev/static/js/main.a4bb7ee2.js.map"
+    "main.2f72fc11.js.map": "/env-onboarding-dev/static/js/main.2f72fc11.js.map"
   },
   "entrypoints": [
     "static/css/main.30563456.css",
-    "static/js/main.a4bb7ee2.js"
+    "static/js/main.2f72fc11.js"
   ]
 }
