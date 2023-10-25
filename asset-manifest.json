@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/env-onboarding-dev/static/css/main.5d7c78d9.css",
-    "main.js": "/env-onboarding-dev/static/js/main.83f79bd6.js",
+    "main.css": "/env-onboarding-dev/static/css/main.b27cf1bb.css",
+    "main.js": "/env-onboarding-dev/static/js/main.400ef39b.js",
     "static/media/image-artboard-phone.png": "/env-onboarding-dev/static/media/image-artboard-phone.d088e4257ad001ff46fc.png",
-    "static/media/benefit-bg.jpg": "/env-onboarding-dev/static/media/benefit-bg.cff078bc228ec192bcdc.jpg",
+    "static/media/benefit-bg.jpg": "/env-onboarding-dev/static/media/benefit-bg.f2c9e5f9ed094f9939ca.jpg",
     "static/media/physical-marking-furniture.png": "/env-onboarding-dev/static/media/physical-marking-furniture.120c6753cc0d2996cc99.png",
     "static/media/the-packengers-logo.svg": "/env-onboarding-dev/static/media/the-packengers-logo.9135b4a904e8e1071420.svg",
     "index.html": "/env-onboarding-dev/index.html",
-    "main.5d7c78d9.css.map": "/env-onboarding-dev/static/css/main.5d7c78d9.css.map",
-    "main.83f79bd6.js.map": "/env-onboarding-dev/static/js/main.83f79bd6.js.map"
+    "main.b27cf1bb.css.map": "/env-onboarding-dev/static/css/main.b27cf1bb.css.map",
+    "main.400ef39b.js.map": "/env-onboarding-dev/static/js/main.400ef39b.js.map"
   },
   "entrypoints": [
-    "static/css/main.5d7c78d9.css",
-    "static/js/main.83f79bd6.js"
+    "static/css/main.b27cf1bb.css",
+    "static/js/main.400ef39b.js"
   ]
 }
