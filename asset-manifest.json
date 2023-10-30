@@ -1,17 +1,18 @@
 {
   "files": {
-    "main.css": "/env-onboarding-dev/static/css/main.87bbd0a9.css",
-    "main.js": "/env-onboarding-dev/static/js/main.a0148d4a.js",
+    "main.css": "/env-onboarding-dev/static/css/main.75ebed7e.css",
+    "main.js": "/env-onboarding-dev/static/js/main.3118944d.js",
+    "static/media/video.mov": "/env-onboarding-dev/static/media/video.864cb783b65cf612f8fe.mov",
     "static/media/image-artboard-phone.png": "/env-onboarding-dev/static/media/image-artboard-phone.d088e4257ad001ff46fc.png",
     "static/media/benefit-bg.jpg": "/env-onboarding-dev/static/media/benefit-bg.f2c9e5f9ed094f9939ca.jpg",
-    "static/media/physical-marking-furniture.png": "/env-onboarding-dev/static/media/physical-marking-furniture.120c6753cc0d2996cc99.png",
+    "static/media/wallet-unikbase-laura.png": "/env-onboarding-dev/static/media/wallet-unikbase-laura.00bfba432daf2f860616.png",
     "static/media/the-packengers-logo.svg": "/env-onboarding-dev/static/media/the-packengers-logo.9135b4a904e8e1071420.svg",
     "index.html": "/env-onboarding-dev/index.html",
-    "main.87bbd0a9.css.map": "/env-onboarding-dev/static/css/main.87bbd0a9.css.map",
-    "main.a0148d4a.js.map": "/env-onboarding-dev/static/js/main.a0148d4a.js.map"
+    "main.75ebed7e.css.map": "/env-onboarding-dev/static/css/main.75ebed7e.css.map",
+    "main.3118944d.js.map": "/env-onboarding-dev/static/js/main.3118944d.js.map"
   },
   "entrypoints": [
-    "static/css/main.87bbd0a9.css",
-    "static/js/main.a0148d4a.js"
+    "static/css/main.75ebed7e.css",
+    "static/js/main.3118944d.js"
   ]
 }
