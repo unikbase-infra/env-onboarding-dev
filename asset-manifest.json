@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/env-onboarding-dev/static/css/main.849ab46b.css",
+    "main.css": "/env-onboarding-dev/static/css/main.458ee15b.css",
     "main.js": "/env-onboarding-dev/static/js/main.a62819a0.js",
     "static/media/video.mov": "/env-onboarding-dev/static/media/video.864cb783b65cf612f8fe.mov",
     "static/media/image-artboard-phone.png": "/env-onboarding-dev/static/media/image-artboard-phone.d088e4257ad001ff46fc.png",
@@ -8,11 +8,11 @@
     "static/media/wallet-unikbase-laura.png": "/env-onboarding-dev/static/media/wallet-unikbase-laura.00bfba432daf2f860616.png",
     "static/media/the-packengers-logo.svg": "/env-onboarding-dev/static/media/the-packengers-logo.9135b4a904e8e1071420.svg",
     "index.html": "/env-onboarding-dev/index.html",
-    "main.849ab46b.css.map": "/env-onboarding-dev/static/css/main.849ab46b.css.map",
+    "main.458ee15b.css.map": "/env-onboarding-dev/static/css/main.458ee15b.css.map",
     "main.a62819a0.js.map": "/env-onboarding-dev/static/js/main.a62819a0.js.map"
   },
   "entrypoints": [
-    "static/css/main.849ab46b.css",
+    "static/css/main.458ee15b.css",
     "static/js/main.a62819a0.js"
   ]
 }
