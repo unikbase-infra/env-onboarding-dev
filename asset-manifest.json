@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/env-onboarding-dev/static/css/main.a6ab2b37.css",
-    "main.js": "/env-onboarding-dev/static/js/main.d7361fda.js",
+    "main.js": "/env-onboarding-dev/static/js/main.97f3c456.js",
     "static/media/video.mov": "/env-onboarding-dev/static/media/video.864cb783b65cf612f8fe.mov",
     "static/media/benefit-bg.png": "/env-onboarding-dev/static/media/benefit-bg.00278e091cb92106a4a7.png",
     "static/media/image-artboard-phone.png": "/env-onboarding-dev/static/media/image-artboard-phone.d088e4257ad001ff46fc.png",
@@ -10,10 +10,10 @@
     "static/media/iphone-mockup.svg": "/env-onboarding-dev/static/media/iphone-mockup.74eea1c5920ccb17399f.svg",
     "index.html": "/env-onboarding-dev/index.html",
     "main.a6ab2b37.css.map": "/env-onboarding-dev/static/css/main.a6ab2b37.css.map",
-    "main.d7361fda.js.map": "/env-onboarding-dev/static/js/main.d7361fda.js.map"
+    "main.97f3c456.js.map": "/env-onboarding-dev/static/js/main.97f3c456.js.map"
   },
   "entrypoints": [
     "static/css/main.a6ab2b37.css",
-    "static/js/main.d7361fda.js"
+    "static/js/main.97f3c456.js"
   ]
 }
