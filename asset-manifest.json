@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/env-onboarding-dev/static/css/main.b533ab3b.css",
-    "main.js": "/env-onboarding-dev/static/js/main.c08fbcbe.js",
+    "main.js": "/env-onboarding-dev/static/js/main.213e9912.js",
     "static/media/video.mov": "/env-onboarding-dev/static/media/video.864cb783b65cf612f8fe.mov",
     "static/media/benefit-bg.png": "/env-onboarding-dev/static/media/benefit-bg.00278e091cb92106a4a7.png",
     "static/media/standard_fig.jpg": "/env-onboarding-dev/static/media/standard_fig.6fbef7fef2763fd28ebd.jpg",
@@ -13,10 +13,10 @@
     "static/media/bar_loader.svg": "/env-onboarding-dev/static/media/bar_loader.5d04098c2f15fd030855.svg",
     "index.html": "/env-onboarding-dev/index.html",
     "main.b533ab3b.css.map": "/env-onboarding-dev/static/css/main.b533ab3b.css.map",
-    "main.c08fbcbe.js.map": "/env-onboarding-dev/static/js/main.c08fbcbe.js.map"
+    "main.213e9912.js.map": "/env-onboarding-dev/static/js/main.213e9912.js.map"
   },
   "entrypoints": [
     "static/css/main.b533ab3b.css",
-    "static/js/main.c08fbcbe.js"
+    "static/js/main.213e9912.js"
   ]
 }
