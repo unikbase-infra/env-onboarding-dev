@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/env-onboarding-dev/static/css/main.61f61e81.css",
-    "main.js": "/env-onboarding-dev/static/js/main.bbf450de.js",
+    "main.css": "/env-onboarding-dev/static/css/main.ba0310f1.css",
+    "main.js": "/env-onboarding-dev/static/js/main.9c4de211.js",
     "static/media/video.mov": "/env-onboarding-dev/static/media/video.864cb783b65cf612f8fe.mov",
     "static/media/benefit-bg.png": "/env-onboarding-dev/static/media/benefit-bg.00278e091cb92106a4a7.png",
     "static/media/standard_fig.jpg": "/env-onboarding-dev/static/media/standard_fig.6fbef7fef2763fd28ebd.jpg",
@@ -18,11 +18,11 @@
     "static/media/iphone-mockup.svg": "/env-onboarding-dev/static/media/iphone-mockup.392f3d1b0cf107c39d69.svg",
     "static/media/bar_loader.svg": "/env-onboarding-dev/static/media/bar_loader.5d04098c2f15fd030855.svg",
     "index.html": "/env-onboarding-dev/index.html",
-    "main.61f61e81.css.map": "/env-onboarding-dev/static/css/main.61f61e81.css.map",
-    "main.bbf450de.js.map": "/env-onboarding-dev/static/js/main.bbf450de.js.map"
+    "main.ba0310f1.css.map": "/env-onboarding-dev/static/css/main.ba0310f1.css.map",
+    "main.9c4de211.js.map": "/env-onboarding-dev/static/js/main.9c4de211.js.map"
   },
   "entrypoints": [
-    "static/css/main.61f61e81.css",
-    "static/js/main.bbf450de.js"
+    "static/css/main.ba0310f1.css",
+    "static/js/main.9c4de211.js"
   ]
 }
