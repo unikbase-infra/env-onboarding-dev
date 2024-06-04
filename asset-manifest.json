@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/env-onboarding-dev/static/css/main.b97a8c08.css",
-    "main.js": "/env-onboarding-dev/static/js/main.6471e3f1.js",
+    "main.css": "/env-onboarding-dev/static/css/main.5ac77923.css",
+    "main.js": "/env-onboarding-dev/static/js/main.9201ebda.js",
     "static/media/video.mov": "/env-onboarding-dev/static/media/video.864cb783b65cf612f8fe.mov",
     "static/media/standard_fig.jpg": "/env-onboarding-dev/static/media/standard_fig.6fbef7fef2763fd28ebd.jpg",
     "static/media/plus_fig.jpg": "/env-onboarding-dev/static/media/plus_fig.1830305522a35cb1093c.jpg",
@@ -18,11 +18,11 @@
     "static/media/iphone-mockup.svg": "/env-onboarding-dev/static/media/iphone-mockup.392f3d1b0cf107c39d69.svg",
     "static/media/bar_loader.svg": "/env-onboarding-dev/static/media/bar_loader.5d04098c2f15fd030855.svg",
     "index.html": "/env-onboarding-dev/index.html",
-    "main.b97a8c08.css.map": "/env-onboarding-dev/static/css/main.b97a8c08.css.map",
-    "main.6471e3f1.js.map": "/env-onboarding-dev/static/js/main.6471e3f1.js.map"
+    "main.5ac77923.css.map": "/env-onboarding-dev/static/css/main.5ac77923.css.map",
+    "main.9201ebda.js.map": "/env-onboarding-dev/static/js/main.9201ebda.js.map"
   },
   "entrypoints": [
-    "static/css/main.b97a8c08.css",
-    "static/js/main.6471e3f1.js"
+    "static/css/main.5ac77923.css",
+    "static/js/main.9201ebda.js"
   ]
 }
