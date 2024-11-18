@@ -1,12 +1,16 @@
 {
   "files": {
-    "main.css": "/env-onboarding-dev/static/css/main.5ac77923.css",
-    "main.js": "/env-onboarding-dev/static/js/main.9201ebda.js",
+    "main.css": "/env-onboarding-dev/static/css/main.614f263b.css",
+    "main.js": "/env-onboarding-dev/static/js/main.faf211c1.js",
     "static/media/video.mov": "/env-onboarding-dev/static/media/video.864cb783b65cf612f8fe.mov",
+    "static/media/image-artboard-phone-ars.png": "/env-onboarding-dev/static/media/image-artboard-phone-ars.cb66fc384fb13587a590.png",
+    "static/media/benefit-bg-ars.png": "/env-onboarding-dev/static/media/benefit-bg-ars.af5e832edb98fe31a1e5.png",
     "static/media/standard_fig.jpg": "/env-onboarding-dev/static/media/standard_fig.6fbef7fef2763fd28ebd.jpg",
     "static/media/plus_fig.jpg": "/env-onboarding-dev/static/media/plus_fig.1830305522a35cb1093c.jpg",
     "static/media/image-artboard-phone.png": "/env-onboarding-dev/static/media/image-artboard-phone.d088e4257ad001ff46fc.png",
     "static/media/benefit-bg.png": "/env-onboarding-dev/static/media/benefit-bg.38891ec8ade442f2447e.png",
+    "static/media/cormorant.regular.otf": "/env-onboarding-dev/static/media/cormorant.regular.4e8f9e2cc66e5b4473ee.otf",
+    "static/media/cormorant.bold.otf": "/env-onboarding-dev/static/media/cormorant.bold.cbcb4763a444f8c0ac30.otf",
     "static/media/wallet-unikbase-laura.png": "/env-onboarding-dev/static/media/wallet-unikbase-laura.ddc459489dcd8f940f5e.png",
     "static/media/Apercu Italic.otf": "/env-onboarding-dev/static/media/Apercu Italic.b47cb3b6597e04b3b401.otf",
     "static/media/Apercu Bold Italic.otf": "/env-onboarding-dev/static/media/Apercu Bold Italic.9a100ce5ff73b69f88c4.otf",
@@ -18,11 +22,11 @@
     "static/media/iphone-mockup.svg": "/env-onboarding-dev/static/media/iphone-mockup.392f3d1b0cf107c39d69.svg",
     "static/media/bar_loader.svg": "/env-onboarding-dev/static/media/bar_loader.5d04098c2f15fd030855.svg",
     "index.html": "/env-onboarding-dev/index.html",
-    "main.5ac77923.css.map": "/env-onboarding-dev/static/css/main.5ac77923.css.map",
-    "main.9201ebda.js.map": "/env-onboarding-dev/static/js/main.9201ebda.js.map"
+    "main.614f263b.css.map": "/env-onboarding-dev/static/css/main.614f263b.css.map",
+    "main.faf211c1.js.map": "/env-onboarding-dev/static/js/main.faf211c1.js.map"
   },
   "entrypoints": [
-    "static/css/main.5ac77923.css",
-    "static/js/main.9201ebda.js"
+    "static/css/main.614f263b.css",
+    "static/js/main.faf211c1.js"
   ]
 }
