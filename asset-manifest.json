@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/env-onboarding-dev/static/css/main.614f263b.css",
-    "main.js": "/env-onboarding-dev/static/js/main.faf211c1.js",
+    "main.css": "/env-onboarding-dev/static/css/main.1935cf52.css",
+    "main.js": "/env-onboarding-dev/static/js/main.4ef23b0b.js",
     "static/media/video.mov": "/env-onboarding-dev/static/media/video.864cb783b65cf612f8fe.mov",
     "static/media/image-artboard-phone-ars.png": "/env-onboarding-dev/static/media/image-artboard-phone-ars.cb66fc384fb13587a590.png",
     "static/media/benefit-bg-ars.png": "/env-onboarding-dev/static/media/benefit-bg-ars.af5e832edb98fe31a1e5.png",
@@ -22,11 +22,11 @@
     "static/media/iphone-mockup.svg": "/env-onboarding-dev/static/media/iphone-mockup.392f3d1b0cf107c39d69.svg",
     "static/media/bar_loader.svg": "/env-onboarding-dev/static/media/bar_loader.5d04098c2f15fd030855.svg",
     "index.html": "/env-onboarding-dev/index.html",
-    "main.614f263b.css.map": "/env-onboarding-dev/static/css/main.614f263b.css.map",
-    "main.faf211c1.js.map": "/env-onboarding-dev/static/js/main.faf211c1.js.map"
+    "main.1935cf52.css.map": "/env-onboarding-dev/static/css/main.1935cf52.css.map",
+    "main.4ef23b0b.js.map": "/env-onboarding-dev/static/js/main.4ef23b0b.js.map"
   },
   "entrypoints": [
-    "static/css/main.614f263b.css",
-    "static/js/main.faf211c1.js"
+    "static/css/main.1935cf52.css",
+    "static/js/main.4ef23b0b.js"
   ]
 }
